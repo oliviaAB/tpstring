@@ -34,6 +34,8 @@
 // ===========================================================================
 //                                  Constructors
 // ===========================================================================
+int string::MAX_SIZE=100;
+
 string::string(void)
 {
 	character =new char[4];
@@ -43,7 +45,6 @@ string::string(void)
 	character[3]='O';
 	length=4;
 	capacity=4;
-
 }
 
 /* PARTIE 2

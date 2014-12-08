@@ -101,6 +101,7 @@ class string
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
+    static int MAX_SIZE;
     char* character;
     int length;
     int capacity;
