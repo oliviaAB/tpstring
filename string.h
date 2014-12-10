@@ -78,11 +78,15 @@ class string
     // =======================================================================
     //                              Public Methods
     // =======================================================================
+
+    bool empty() const;
+    size_t capacity(void) const;
+
     size_t length(void) const;
 
-    int empty(size_t strlength);
-
     size_t max_size() const;
+
+    const char* c_str() const;
 
     // =======================================================================
     //                             Public Attributes

@@ -36,18 +36,14 @@
 // ===========================================================================
 size_t string::MAX_SIZE=100;
 
+
 string::string(void)
 {
 	character = NULL;
-	//character[0]='T';
-	//character[1]='O';
-	//character[2]='T';
-	//character[3]='O';
-	//length=4;
-	//capacity=4;
 	length_=0;
 	capacity_=0;
 }
+
 
 string::string(const string& str)  //Build copy constructor
 {
@@ -83,6 +79,7 @@ string::string(const char* sentence)
 	{
 		printf("Your string is too long, MAX_SIZE=%ld, only %ld characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
+
 // length is equal to the number of apparent characters (without \0) 
 // capacity is equal to the actually allocated memory 
 	character=new char[i+1];
@@ -114,18 +111,32 @@ string::~string(void)
 //                                 Public Methods
 // ===========================================================================
 
-
-// test if string is empty or not
-int string::empty(size_t strlength)
+//-----------------------------------------------------------
+//                       EMPTY
+//-----------------------------------------------------------
+// Test if string is empty or not
+bool string::empty(void) const
 {
-	int isempty = 1;
-	if(strlength == 0)
+	bool isempty = 1;
+	if(length_ == 0)
 	{
 		isempty= 0;
 	} 
 	return isempty;
 }
 
+
+const char* string::c_str() const
+{
+  char* char_return = new char[length_ +1];
+  size_t i;
+  for (i=0; i<length_; i++)
+  {
+	char_return[i]=character[i];
+  }
+  char_return[i+1]='\0';
+  return char_return;
+}
 //-----------------------------------------------------------
 //                       DISPLAY
 //-----------------------------------------------------------
@@ -139,7 +150,9 @@ void string::display(void)
 	 }
 	 printf("\n");
 }
-
+//-----------------------------------------------------------
+//                       GETTERS
+//-----------------------------------------------------------
 char* string::get_character(void) const
 {
 	return character;
@@ -151,6 +164,15 @@ size_t string::get_length_(void) const
 }
 
 size_t string::get_capacity_(void) const
+{
+	return capacity_;
+}
+
+//-----------------------------------------------------------
+//                       CAPACITY
+//-----------------------------------------------------------
+
+size_t string::capacity(void) const
 {
 	return capacity_;
 }
@@ -188,3 +210,4 @@ size_t string::max_size() const
 // ===========================================================================
 //                               Non inline accessors
 // ===========================================================================
+

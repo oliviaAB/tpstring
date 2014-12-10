@@ -37,11 +37,12 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
-  int emptyornot = 2;
+  bool emptyornot;
+  string my_string= string("Google");
+  my_string.display();
+  // test method empty
+  emptyornot = my_string.empty();
 
-  string my_string=string("Google");
-
-  emptyornot = my_string.empty(my_string.get_length_());
   printf("%d\n",emptyornot);
 
   string my_string_copy=string(my_string);
