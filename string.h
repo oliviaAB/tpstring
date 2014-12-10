@@ -51,6 +51,9 @@ class string
     string(const char*);
     
     void display(void);
+    
+    //Copy constructor
+    string(const string& str) ;
     // =======================================================================
     //                                Destructor
     // =======================================================================

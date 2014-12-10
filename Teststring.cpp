@@ -43,6 +43,12 @@ int main(int argc, char* argv[])
   emptyornot = my_string->empty(my_string->get_length_());
   printf("%d\n",emptyornot);
 
+  string my_string2=string("Google");
+  string my_string_copy=string(my_string2);
+  my_string_copy.display();
+
+  
+
 
   return 0;
 }
