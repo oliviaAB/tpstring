@@ -34,7 +34,7 @@
 // ===========================================================================
 //                                  Constructors
 // ===========================================================================
-int string::MAX_SIZE=100;
+size_t string::MAX_SIZE=100;
 
 string::string(void)
 {
@@ -54,7 +54,7 @@ string::string(const string& str)  //Build copy constructor
   character = new char[str.get_length_()+1];  
   length_ =  str.get_length_();
   capacity_ = str.get_capacity_();
-  int i;
+  size_t i;
   for (i=0; i<str.get_length_(); i++)
   {
 	character[i]=str.character[i];
@@ -70,7 +70,7 @@ string::string(const string& str)  //Build copy constructor
 
 string::string(const char* sentence)
 {
-	int i=0;
+	size_t i=0;
 
 //Calculate the number of character in sentence
 	while(sentence[i]!='\0' && i<(MAX_SIZE-1))
@@ -81,7 +81,7 @@ string::string(const char* sentence)
 //If sentence is too long: error message
 	if(i==(MAX_SIZE-1))
 	{
-		printf("Your string is too long, MAX_SIZE=%d, only %d characters\n", MAX_SIZE, (MAX_SIZE-1));
+		printf("Your string is too long, MAX_SIZE=%ld, only %ld characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
 // length is equal to the number of apparent characters (without \0) 
 // capacity is equal to the actually allocated memory 
@@ -116,7 +116,7 @@ string::~string(void)
 
 
 // test if string is empty or not
-int string::empty(int strlength)
+int string::empty(size_t strlength)
 {
 	int isempty = 1;
 	if(strlength == 0)
@@ -132,7 +132,7 @@ int string::empty(int strlength)
 
 void string::display(void)
 {
-	 int i=0;
+	 size_t i=0;
 	 for(i=0;i<length_;i++)
 	 {
 	 	printf("%c", character[i]);
@@ -145,19 +145,19 @@ char* string::get_character(void) const
 	return character;
 }
 
-int string::get_length_(void) const
+size_t string::get_length_(void) const
 {
     return length_;
 }
 
-int string::get_capacity_(void) const
+size_t string::get_capacity_(void) const
 {
 	return capacity_;
 }
 
-int string::length() 
+size_t string::length() const 
 {
-	int i=0;
+	size_t i=0;
 	while(character[i]!='\0')
 	{
 		i++;
@@ -165,12 +165,7 @@ int string::length()
 
 	if(i>=MAX_SIZE)
 	{
-		printf("Your string is too long, MAX_SIZE= %d\n", MAX_SIZE);
-	}
-
-	if(length_!=i && i<MAX_SIZE)
-	{
-		length_=i;
+		printf("Your string is too long, MAX_SIZE= %ld\n", MAX_SIZE);
 	}
 
 	return i;

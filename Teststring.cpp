@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
   string my_string_copy=string(my_string);
   my_string_copy.display();
 
-  printf("Length of my_string_copy: %d\n", my_string_copy.length());
+  printf("Length of my_string_copy: %ld\n", my_string_copy.length());
 
   
 
