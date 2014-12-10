@@ -88,14 +88,13 @@ class string
 
     const char* c_str() const;
 
-
     void resize (size_t n);
 
     void reserve (size_t n );
 
     size_t size(void) const;
 
-
+    void clear();
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
