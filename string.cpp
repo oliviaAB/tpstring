@@ -43,8 +43,8 @@ string::string(void)
 	character[1]='O';
 	character[2]='T';
 	character[3]='O';
-	length=4;
-	capacity=4;
+	length_=4;
+	capacity_=4;
 }
 
 
@@ -71,11 +71,11 @@ string::string(const char* sentence)
 	}
 
 	character=new char[i];
-	length=i;
-	capacity=i;
+	length_=i;
+	capacity_=i;
 
 //Copy characters of sentence into character
-	for(i=0;i<=length;i++)
+	for(i=0;i<=length_;i++)
 	{
 		character[i]=sentence[i];
 	}
@@ -92,7 +92,7 @@ string::string(const char* sentence)
 void string::display(void)
 {
 	 int i=0;
-	 for(i=0;i<length;i++)
+	 for(i=0;i<length_;i++)
 	 {
 	 	printf("%c", character[i]);
 	 }

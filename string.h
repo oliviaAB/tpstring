@@ -108,8 +108,8 @@ class string
     // =======================================================================
     static int MAX_SIZE;
     char* character;
-    int length;
-    int capacity;
+    int length_;
+    int capacity_;
 };
 
 
