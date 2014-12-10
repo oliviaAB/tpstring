@@ -42,7 +42,15 @@ int main(int argc, char* argv[])
   my_string.display();
   // test method empty
   emptyornot = my_string.empty();
+
   printf("%d\n",emptyornot);
+
+  string my_string_copy=string(my_string);
+  my_string_copy.display();
+
+  printf("Length of my_string_copy: %ld\n", my_string_copy.length());
+
+  
 
 
   return 0;

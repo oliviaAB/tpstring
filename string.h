@@ -51,6 +51,9 @@ class string
     string(const char*);
     
     void display(void);
+    
+    //Copy constructor
+    string(const string& str) ;
     // =======================================================================
     //                                Destructor
     // =======================================================================
@@ -75,8 +78,13 @@ class string
     // =======================================================================
     //                              Public Methods
     // =======================================================================
+
     bool empty() const;
     size_t capacity(void) const;
+
+    size_t length(void) const;
+
+    const char* c_str() const;
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
@@ -112,8 +120,8 @@ class string
     // =======================================================================
     static size_t MAX_SIZE;
     char* character;
-    int length_;
-    int capacity_;
+    size_t length_;
+    size_t capacity_;
 };
 
 

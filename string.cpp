@@ -37,6 +37,27 @@
 size_t string::MAX_SIZE=100;
 
 
+string::string(void)
+{
+	character = NULL;
+	length_=0;
+	capacity_=0;
+}
+
+
+string::string(const string& str)  //Build copy constructor
+{
+  character = new char[str.get_length_()+1];  
+  length_ =  str.get_length_();
+  capacity_ = str.get_capacity_();
+  size_t i;
+  for (i=0; i<str.get_length_(); i++)
+  {
+	character[i]=str.character[i];
+  }
+  character[i+1]='\0';
+}
+
 //-----------------------------------------------------------
 //                 CONSTRUCTOR WITH A C-STRING
 //-----------------------------------------------------------
@@ -53,15 +74,17 @@ string::string(const char* sentence)
 		i++;
 	}
 
-//If sentence uis too long: error message
+//If sentence is too long: error message
 	if(i==(MAX_SIZE-1))
 	{
 		printf("Your string is too long, MAX_SIZE=%ld, only %ld characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
-//
+
+// length is equal to the number of apparent characters (without \0) 
+// capacity is equal to the actually allocated memory 
 	character=new char[i+1];
 	length_= i;
-	capacity_=i+1;
+	capacity_= i+1;
 
 //Copy characters of sentence into character
 	for(i=0;i<=length_;i++)
@@ -102,13 +125,25 @@ bool string::empty(void) const
 	return isempty;
 }
 
+
+const char* string::c_str() const
+{
+  char* char_return = new char[length_ +1];
+  size_t i;
+  for (i=0; i<length_; i++)
+  {
+	char_return[i]=character[i];
+  }
+  char_return[i+1]='\0';
+  return char_return;
+}
 //-----------------------------------------------------------
 //                       DISPLAY
 //-----------------------------------------------------------
 
 void string::display(void)
 {
-	 int i=0;
+	 size_t i=0;
 	 for(i=0;i<length_;i++)
 	 {
 	 	printf("%c", character[i]);
@@ -140,6 +175,22 @@ size_t string::get_capacity_(void) const
 size_t string::capacity(void) const
 {
 	return capacity_;
+}
+
+size_t string::length() const 
+{
+	size_t i=0;
+	while(character[i]!='\0')
+	{
+		i++;
+	}
+
+	if(i>=MAX_SIZE)
+	{
+		printf("Your string is too long, MAX_SIZE= %ld\n", MAX_SIZE);
+	}
+
+	return i;
 }
 
 // ===========================================================================
