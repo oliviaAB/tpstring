@@ -37,13 +37,18 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
-  
+  int emptyornot = 2;
   string* my_string=new string();
   my_string->display();
+  emptyornot = my_string->empty(my_string->get_length_());
+  printf("%d\n",emptyornot);
 
-//TEST FUNCTION 1 FOR STUDENT 2
   string my_string2=string("Google");
-  my_string2.display();
+  string my_string_copy=string(my_string2);
+  my_string_copy.display();
+
+  
+
 
   return 0;
 }

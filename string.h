@@ -51,7 +51,9 @@ class string
     string(const char*);
     
     void display(void);
-
+    
+    //Copy constructor
+    string(const string& str) ;
     // =======================================================================
     //                                Destructor
     // =======================================================================
@@ -60,6 +62,7 @@ class string
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
+
     char* get_character(void) const;
     int get_length_(void) const;
     int get_capacity_(void) const;
@@ -76,6 +79,9 @@ class string
     //                              Public Methods
     // =======================================================================
     int length(void) const;
+
+    int empty(int strlength);
+
     // =======================================================================
     //                             Public Attributes
     // =======================================================================

@@ -38,15 +38,29 @@ int string::MAX_SIZE=100;
 
 string::string(void)
 {
-	character =new char[4];
-	character[0]='T';
-	character[1]='O';
-	character[2]='T';
-	character[3]='O';
-	length_=4;
-	capacity_=4;
+	character = NULL;
+	//character[0]='T';
+	//character[1]='O';
+	//character[2]='T';
+	//character[3]='O';
+	//length=4;
+	//capacity=4;
+	length_=0;
+	capacity_=0;
 }
 
+string::string(const string& str)  //Build copy constructor
+{
+  character = new char[str.get_length_()+1];  
+  length_ =  str.get_length_();
+  capacity_ = str.get_capacity_();
+  int i;
+  for (i=0; i<str.get_length_(); i++)
+  {
+	character[i]=str.character[i];
+  }
+  character[i+1]='\0';
+}
 
 //-----------------------------------------------------------
 //                 CONSTRUCTOR WITH A C-STRING
@@ -86,6 +100,7 @@ string::string(const char* sentence)
 }
 
 
+
 // ===========================================================================
 //                                  Destructor
 // ===========================================================================
@@ -98,6 +113,18 @@ string::~string(void)
 // ===========================================================================
 //                                 Public Methods
 // ===========================================================================
+
+
+// test if string is empty or not
+int string::empty(int strlength)
+{
+	int isempty = 1;
+	if(strlength == 0)
+	{
+		isempty= 0;
+	} 
+	return isempty;
+}
 
 //-----------------------------------------------------------
 //                       DISPLAY
