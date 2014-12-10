@@ -41,6 +41,9 @@ int main(int argc, char* argv[])
   string my_string= string("Google");
   my_string.display();
 
+  //test method at
+  printf("%c, %c\n", my_string.at(1), my_string.at(7));
+
   // test method empty
   emptyornot = my_string.empty();
 
@@ -48,6 +51,8 @@ int main(int argc, char* argv[])
 
   string my_string_copy=string(my_string);
   my_string_copy.display();
+
+
 
 //Test for resize
   printf("Length of my_string_copy: %ld\n", my_string.length());

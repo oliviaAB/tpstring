@@ -201,7 +201,7 @@ size_t string::length() const
 void string::reserve (size_t n)
 {
 	char* new_char=new char[n];
-	int i=0;
+	size_t i=0;
 	for(i=0;i<=length_;i++)
 	{
 		new_char[i]=character[i];
@@ -260,8 +260,24 @@ size_t string::max_size() const
 
 void string::resize (size_t n)
 {
-	character[n]='\0';
-	length_=n;
+		character[n]='\0';
+		length_=n;
+}
+
+
+//-----------------------------------------------------------
+//                       AT
+//-----------------------------------------------------------
+//Returns a reference to the character at position pos in the string.
+
+char& string::at (size_t pos)
+{
+
+	if(pos>length_)
+	{
+		printf("position superior to length_.\n");
+	}  
+	return character[pos-1];
 }
 
 // ===========================================================================
