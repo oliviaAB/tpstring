@@ -34,18 +34,7 @@
 // ===========================================================================
 //                                  Constructors
 // ===========================================================================
-int string::MAX_SIZE=100;
-
-string::string(void)
-{
-	character =new char[4];
-	character[0]='T';
-	character[1]='O';
-	character[2]='T';
-	character[3]='O';
-	length_=4;
-	capacity_=4;
-}
+size_t string::MAX_SIZE=100;
 
 
 //-----------------------------------------------------------
@@ -56,7 +45,7 @@ string::string(void)
 
 string::string(const char* sentence)
 {
-	int i=0;
+	size_t i=0;
 
 //Calculate the number of character in sentence
 	while(sentence[i]!='\0' && i<(MAX_SIZE-1))
@@ -67,12 +56,12 @@ string::string(const char* sentence)
 //If sentence uis too long: error message
 	if(i==(MAX_SIZE-1))
 	{
-		printf("Your string is too long, MAX_SIZE=%d, only %d characters\n", MAX_SIZE, (MAX_SIZE-1));
+		printf("Your string is too long, MAX_SIZE=%ld, only %ld characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
-
-	character=new char[i];
-	length_=i;
-	capacity_=i;
+//
+	character=new char[i+1];
+	length_= i;
+	capacity_=i+1;
 
 //Copy characters of sentence into character
 	for(i=0;i<=length_;i++)
@@ -99,12 +88,14 @@ string::~string(void)
 //                                 Public Methods
 // ===========================================================================
 
-
-// test if string is empty or not
-int string::empty(int strlength)
+//-----------------------------------------------------------
+//                       EMPTY
+//-----------------------------------------------------------
+// Test if string is empty or not
+bool string::empty(void) const
 {
-	int isempty = 1;
-	if(strlength == 0)
+	bool isempty = 1;
+	if(length_ == 0)
 	{
 		isempty= 0;
 	} 
@@ -124,18 +115,29 @@ void string::display(void)
 	 }
 	 printf("\n");
 }
-
+//-----------------------------------------------------------
+//                       GETTERS
+//-----------------------------------------------------------
 char* string::get_character(void) const
 {
 	return character;
 }
 
-int string::get_length_(void) const
+size_t string::get_length_(void) const
 {
     return length_;
 }
 
-int string::get_capacity_(void) const
+size_t string::get_capacity_(void) const
+{
+	return capacity_;
+}
+
+//-----------------------------------------------------------
+//                       CAPACITY
+//-----------------------------------------------------------
+
+size_t string::capacity(void) const
 {
 	return capacity_;
 }
@@ -147,3 +149,4 @@ int string::get_capacity_(void) const
 // ===========================================================================
 //                               Non inline accessors
 // ===========================================================================
+

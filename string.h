@@ -61,8 +61,8 @@ class string
     // =======================================================================
 
     char* get_character(void) const;
-    int get_length_(void) const;
-    int get_capacity_(void) const;
+    size_t get_length_(void) const;
+    size_t get_capacity_(void) const;
 
     // =======================================================================
     //                            Accessors: setters
@@ -75,7 +75,8 @@ class string
     // =======================================================================
     //                              Public Methods
     // =======================================================================
-    int empty(int strlength);
+    bool empty() const;
+    size_t capacity(void) const;
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
@@ -109,7 +110,7 @@ class string
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
-    static int MAX_SIZE;
+    static size_t MAX_SIZE;
     char* character;
     int length_;
     int capacity_;

@@ -37,10 +37,11 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
-  int emptyornot = 2;
-  string* my_string=new string();
-  my_string->display();
-  emptyornot = my_string->empty(my_string->get_length_());
+  bool emptyornot;
+  string my_string= string("Google");
+  my_string.display();
+  // test method empty
+  emptyornot = my_string.empty();
   printf("%d\n",emptyornot);
 
 
