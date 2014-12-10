@@ -235,6 +235,23 @@ size_t string::max_size() const
 {
 	return MAX_SIZE;
 }
+//-----------------------------------------------------------
+//                       OPERATORS
+//-----------------------------------------------------------
+
+char& string::operator[] (size_t pos)
+{
+	char return_ = NULL;
+	if(pos<=length_)
+	{
+		return_ = character[pos-1];
+	}
+	else
+	{
+		printf("position superior to length\n");
+	}
+	return return_ ;
+}
 
 // ===========================================================================
 //                                Protected Methods

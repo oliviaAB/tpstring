@@ -52,8 +52,8 @@ int main(int argc, char* argv[])
 // Test reserve and capacity 
   printf("la capacité de départ est %ld\n", my_string.capacity());
   my_string.reserve(30);
-  printf("la capacité après reservationest de  %ld\n", my_string.capacity());
-  
+  printf("la capacité après reservation est de  %ld\n", my_string.capacity());
+  printf("la lettre demandé est %c\n",my_string[8]);
 
   return 0;
 }
