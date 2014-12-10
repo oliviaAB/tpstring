@@ -49,9 +49,11 @@ int main(int argc, char* argv[])
   my_string_copy.display();
 
   printf("Length of my_string_copy: %ld\n", my_string_copy.length());
-
+// Test reserve and capacity 
+  printf("la capacité de départ est %ld\n", my_string.capacity());
+  my_string.reserve(30);
+  printf("la capacité après reservationest de  %ld\n", my_string.capacity());
   
-
 
   return 0;
 }

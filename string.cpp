@@ -49,7 +49,7 @@ string::string(const string& str)  //Build copy constructor
 {
   character = new char[str.get_length_()+1];  
   length_ =  str.get_length_();
-  capacity_ = str.get_capacity_();
+  capacity_ = str.capacity();
   size_t i;
   for (i=0; i<str.get_length_(); i++)
   {
@@ -163,10 +163,7 @@ size_t string::get_length_(void) const
     return length_;
 }
 
-size_t string::get_capacity_(void) const
-{
-	return capacity_;
-}
+
 
 //-----------------------------------------------------------
 //                       CAPACITY
@@ -193,6 +190,22 @@ size_t string::length() const
 	return i;
 }
 
+//-----------------------------------------------------------
+//                       RESERVE
+//-----------------------------------------------------------
+
+void string::reserve (size_t n)
+{
+	char* new_char=new char[n];
+	int i=0;
+	for(i=0;i<=length_;i++)
+	{
+		new_char[i]=character[i];
+	}
+	delete character;
+	character=new_char;
+	capacity_ = n;
+}
 // ===========================================================================
 //                                Protected Methods
 // ===========================================================================

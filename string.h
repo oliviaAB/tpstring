@@ -65,7 +65,6 @@ class string
 
     char* get_character(void) const;
     size_t get_length_(void) const;
-    size_t get_capacity_(void) const;
 
     // =======================================================================
     //                            Accessors: setters
@@ -85,6 +84,8 @@ class string
     size_t length(void) const;
 
     const char* c_str() const;
+
+    void reserve (size_t n );
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
