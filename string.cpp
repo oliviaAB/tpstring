@@ -174,6 +174,9 @@ size_t string::capacity(void) const
 	return capacity_;
 }
 
+//-----------------------------------------------------------
+//                       LENGTH
+//-----------------------------------------------------------
 size_t string::length() const 
 {
 	size_t i=0;
@@ -206,6 +209,33 @@ void string::reserve (size_t n)
 	character=new_char;
 	capacity_ = n;
 }
+//                       SIZE
+//-----------------------------------------------------------
+size_t string::size() const 
+{
+	size_t i=0;
+	while(character[i]!='\0')
+	{
+		i++;
+	}
+
+	if(i>=MAX_SIZE)
+	{
+		printf("Your string is too long, MAX_SIZE= %ld\n", MAX_SIZE);
+	}
+
+	return i;
+}
+//-----------------------------------------------------------
+//                       MAX_SIZE
+//-----------------------------------------------------------
+// Returns the maximum length the string can reach
+
+size_t string::max_size() const
+{
+	return MAX_SIZE;
+}
+
 // ===========================================================================
 //                                Protected Methods
 // ===========================================================================

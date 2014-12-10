@@ -79,13 +79,21 @@ class string
     // =======================================================================
 
     bool empty() const;
+
     size_t capacity(void) const;
 
     size_t length(void) const;
 
+    size_t max_size() const;
+
     const char* c_str() const;
 
+
     void reserve (size_t n );
+
+    size_t size(void) const;
+
+
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
