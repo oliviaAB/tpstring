@@ -62,16 +62,6 @@ string::string(const char* sentence, int my_size)
 }
 */
 
-void string::display(void)
-{
-	 int i=0;
-	 for(i=0;i<length;i++)
-	 {
-	 	printf("%c", character[i]);
-	 }
-	 printf("\n");
-}
-
 // ===========================================================================
 //                                  Destructor
 // ===========================================================================
@@ -84,7 +74,30 @@ string::~string(void)
 // ===========================================================================
 //                                 Public Methods
 // ===========================================================================
+void string::display(void)
+{
+	 int i=0;
+	 for(i=0;i<length;i++)
+	 {
+	 	printf("%c", character[i]);
+	 }
+	 printf("\n");
+}
+int string::get_length(void)
+{
+	return length;
+}
 
+// test if string is empty or not
+int string::empty(int strlength)
+{
+	int isempty = 1;
+	if(strlength == 0)
+	{
+		isempty= 0;
+	} 
+	return isempty;
+}
 // ===========================================================================
 //                                Protected Methods
 // ===========================================================================
