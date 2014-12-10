@@ -60,6 +60,9 @@ class string
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
+    char* get_character(void) const;
+    int get_length_(void) const;
+    int get_capacity_(void) const;
 
     // =======================================================================
     //                            Accessors: setters
