@@ -59,15 +59,15 @@ string::string(const char* sentence)
 	int i=0;
 
 //Calculate the number of character in sentence
-	while(sentence[i]!='\0' && i<=MAX_SIZE)
+	while(sentence[i]!='\0' && i<(MAX_SIZE-1))
 	{
 		i++;
 	}
 
 //If sentence uis too long: error message
-	if(i==100)
+	if(i==(MAX_SIZE-1))
 	{
-		printf("Your string is too long, MAX_SIZE=100\n");
+		printf("Your string is too long, MAX_SIZE=%d, only %d characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
 
 	character=new char[i];
@@ -75,13 +75,19 @@ string::string(const char* sentence)
 	capacity=i;
 
 //Copy characters of sentence into character
-	i=0;
-	while(sentence[i]!='\0' && i<=MAX_SIZE)
+	for(i=0;i<=length;i++)
 	{
 		character[i]=sentence[i];
-		i++;
 	}
+
+//Add '\0' at the end of the string
+	character[i+1]='\0';
 }
+
+
+//-----------------------------------------------------------
+//                       DISPLAY
+//-----------------------------------------------------------
 
 void string::display(void)
 {
