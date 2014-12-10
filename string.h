@@ -81,7 +81,8 @@ class string
     size_t length(void) const;
 
     int empty(size_t strlength);
-
+ 
+    const char* c_str() const;
     // =======================================================================
     //                             Public Attributes
     // =======================================================================

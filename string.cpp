@@ -126,6 +126,18 @@ int string::empty(size_t strlength)
 	return isempty;
 }
 
+
+const char* string::c_str() const
+{
+  char* char_return = new char[length_ +1];
+  size_t i;
+  for (i=0; i<length_; i++)
+  {
+	char_return[i]=character[i];
+  }
+  char_return[i+1]='\0';
+  return char_return;
+}
 //-----------------------------------------------------------
 //                       DISPLAY
 //-----------------------------------------------------------
