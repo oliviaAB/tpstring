@@ -64,15 +64,16 @@ string::string(const char* sentence)
 		i++;
 	}
 
-//If sentence uis too long: error message
+//If sentence is too long: error message
 	if(i==(MAX_SIZE-1))
 	{
 		printf("Your string is too long, MAX_SIZE=%d, only %d characters\n", MAX_SIZE, (MAX_SIZE-1));
 	}
-
-	character=new char[i];
-	length_=i;
-	capacity_=i;
+// length is equal to the number of apparent characters (without \0) 
+// capacity is equal to the actually allocated memory 
+	character=new char[i+1];
+	length_= i;
+	capacity_= i+1;
 
 //Copy characters of sentence into character
 	for(i=0;i<=length_;i++)
@@ -125,6 +126,24 @@ int string::get_length_(void) const
 int string::get_capacity_(void) const
 {
 	return capacity_;
+}
+
+int string::length() const 
+{
+	int i=0;
+	while(character[i]!='\0')
+	{
+		i++;
+	}
+
+	i++;
+
+	if(i>=MAX_SIZE)
+	{
+		printf("Your string is too long, MAX_SIZE= %d\n", MAX_SIZE);
+	}
+
+	return i;
 }
 
 // ===========================================================================
