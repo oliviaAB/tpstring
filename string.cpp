@@ -168,7 +168,7 @@ size_t string::get_length_(void) const
 //-----------------------------------------------------------
 //                       CAPACITY
 //-----------------------------------------------------------
-
+// Return size of allocated storage
 size_t string::capacity(void) const
 {
 	return capacity_;
@@ -177,7 +177,7 @@ size_t string::capacity(void) const
 //-----------------------------------------------------------
 //                       LENGTH
 //-----------------------------------------------------------
-
+// Return length of string
 size_t string::length() const 
 {
 	size_t i=0;
@@ -197,7 +197,7 @@ size_t string::length() const
 //-----------------------------------------------------------
 //                       RESERVE
 //-----------------------------------------------------------
-
+//Request a change in capacity
 void string::reserve (size_t n)
 {
 	char* new_char=new char[n];
@@ -270,6 +270,24 @@ char& string::operator[] (size_t pos)
 	}
 	return return_ ;
 }
+
+//-----------------------------------------------------------
+//                       OPERATOR=
+//-----------------------------------------------------------
+void string::operator=(const string& str)
+{
+  character=NULL;
+  character= new char[str.get_length_()+1];  
+  length_ =  str.get_length_();
+  capacity_ = str.capacity();
+  size_t i;
+  for (i=0; i<str.get_length_(); i++)
+  {
+	character[i]=str.character[i];
+  }
+  character[i+1]='\0';
+}
+
 
 //-----------------------------------------------------------
 //                       RESIZE

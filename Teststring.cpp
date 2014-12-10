@@ -38,6 +38,7 @@
 int main(int argc, char* argv[])
 {
   bool emptyornot;
+  string my_string2=string("");
   string my_string= string("Google");
   my_string.display();
 
@@ -70,6 +71,11 @@ int main(int argc, char* argv[])
   my_string.clear(); 
   my_string.display(); 
 
+  my_string2=(my_string);  //test function operator=
+  my_string2.display();
+
+  my_string.clear(); //test function clear
+  my_string.display();  //test function clear
 
   return 0;
 }
