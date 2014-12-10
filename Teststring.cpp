@@ -38,14 +38,16 @@
 int main(int argc, char* argv[])
 {
   int emptyornot = 2;
-  string* my_string=new string();
-  my_string->display();
-  emptyornot = my_string->empty(my_string->get_length_());
+
+  string my_string=string("Google");
+
+  emptyornot = my_string.empty(my_string.get_length_());
   printf("%d\n",emptyornot);
 
-  string my_string2=string("Google");
-  string my_string_copy=string(my_string2);
+  string my_string_copy=string(my_string);
   my_string_copy.display();
+
+  printf("Length of my_string_copy: %d\n", my_string_copy.length());
 
   
 

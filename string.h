@@ -78,7 +78,7 @@ class string
     // =======================================================================
     //                              Public Methods
     // =======================================================================
-    int length(void) const;
+    int length(void);
 
     int empty(int strlength);
 

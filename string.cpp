@@ -155,7 +155,7 @@ int string::get_capacity_(void) const
 	return capacity_;
 }
 
-int string::length() const 
+int string::length() 
 {
 	int i=0;
 	while(character[i]!='\0')
@@ -163,11 +163,14 @@ int string::length() const
 		i++;
 	}
 
-	i++;
-
 	if(i>=MAX_SIZE)
 	{
 		printf("Your string is too long, MAX_SIZE= %d\n", MAX_SIZE);
+	}
+
+	if(length_!=i && i<MAX_SIZE)
+	{
+		length_=i;
 	}
 
 	return i;
