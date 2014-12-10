@@ -42,6 +42,8 @@ int main(int argc, char* argv[])
   my_string->display();
   emptyornot = my_string->empty(my_string->get_length());
   printf("%d\n",emptyornot);
+
+
   return 0;
 }
 

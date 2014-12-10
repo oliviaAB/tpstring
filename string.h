@@ -46,7 +46,10 @@ class string
     //                               Constructors
     // =======================================================================
     string(void);
-    //string(const char*,int my_size);
+
+    //Constructor with a c-string
+    string(const char*);
+    
     void display(void);
     // =======================================================================
     //                                Destructor
@@ -56,7 +59,11 @@ class string
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-    int get_length_(void);
+
+    char* get_character(void) const;
+    int get_length_(void) const;
+    int get_capacity_(void) const;
+
     // =======================================================================
     //                            Accessors: setters
     // =======================================================================
@@ -86,11 +93,13 @@ class string
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
+      /*
     string(const string &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };
+    */
 
 
     // =======================================================================
@@ -102,8 +111,8 @@ class string
     // =======================================================================
     static int MAX_SIZE;
     char* character;
-    int length;
-    int capacity;
+    int length_;
+    int capacity_;
 };
 
 
