@@ -47,20 +47,41 @@ string::string(void)
 	capacity=4;
 }
 
-/* PARTIE 2
-string::string(const char* sentence, int my_size)
+
+//-----------------------------------------------------------
+//                 CONSTRUCTOR WITH A C-STRING
+//-----------------------------------------------------------
+//if the input c-string is too long, copy only the MAX_SIZE
+//first characters, and print an error message
+
+string::string(const char* sentence)
 {
-	character=new char[length];
 	int i=0;
-	for(i=0;i<my_size;i++)
+
+//Calculate the number of character in sentence
+	while(sentence[i]!='\0' && i<=MAX_SIZE)
+	{
+		i++;
+	}
+
+//If sentence uis too long: error message
+	if(i==100)
+	{
+		printf("Your string is too long, MAX_SIZE=100\n");
+	}
+
+	character=new char[i];
+	length=i;
+	capacity=i;
+
+//Copy characters of sentence into character
+	i=0;
+	while(sentence[i]!='\0' && i<=MAX_SIZE)
 	{
 		character[i]=sentence[i];
+		i++;
 	}
-	character[i+1]='\0';
-	length =  my_size;
-	capacity = my_size;
 }
-*/
 
 void string::display(void)
 {

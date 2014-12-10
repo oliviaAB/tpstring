@@ -46,7 +46,10 @@ class string
     //                               Constructors
     // =======================================================================
     string(void);
-    //string(const char*,int my_size);
+
+    //Constructor with a c-string
+    string(const char*);
+    
     void display(void);
 
     // =======================================================================
@@ -87,11 +90,13 @@ class string
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
+      /*
     string(const string &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };
+    */
 
 
     // =======================================================================
