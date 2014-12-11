@@ -37,7 +37,7 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
-  /*bool emptyornot;
+  bool emptyornot;
   string my_string2=string("");
   string my_string= string("Google");
   my_string.display();
@@ -82,7 +82,9 @@ int main(int argc, char* argv[])
   string operat =(sentences);
   operat.display();
   printf(" capacity is %ld and length is %ld\n", operat.length(), operat.capacity());
-  */
+
+
+  //test operato+(string string)
   string truc= string("Gogogle");
   string my_string= string("Google");
   string string_operat;
@@ -90,7 +92,6 @@ int main(int argc, char* argv[])
   my_string.display();
   string test= truc + my_string;
   test.display(); 
-  //string_operat.display();
   return 0;
 }
 
