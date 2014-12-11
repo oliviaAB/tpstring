@@ -257,7 +257,7 @@ size_t string::max_size() const
 	return MAX_SIZE;
 }
 //-----------------------------------------------------------
-//                       OPERATORS
+//                       OPERATOR []
 //-----------------------------------------------------------
 
 char& string::operator[] (size_t pos)
@@ -291,6 +291,13 @@ string& string::operator= (const char* s)
   string my_string=string(s);  
  
   return my_string;
+}
+
+string& string::operator= (char c)
+{
+	string output=string(&c);
+
+	return output;
 }
 
 //-----------------------------------------------------------

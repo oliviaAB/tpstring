@@ -37,6 +37,8 @@
 // ===========================================================================
 int main(int argc, char* argv[])
 {
+
+  /*
   bool emptyornot;
   string my_string2=string("");
   string my_string= string("Google");
@@ -76,6 +78,12 @@ int main(int argc, char* argv[])
 
   my_string.clear(); //test function clear
   my_string.display();  //test function clear
+  */
+
+  string my_string="Hello";
+  string my_string2="World";
+  my_string2=my_string;
+  my_string2.display();
 
   return 0;
 }
