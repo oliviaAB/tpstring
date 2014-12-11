@@ -200,15 +200,18 @@ size_t string::length() const
 //Request a change in capacity
 void string::reserve (size_t n)
 {
-	char* new_char=new char[n];
-	size_t i=0;
-	for(i=0;i<=length_;i++)
+	if(capacity_<n)
 	{
-		new_char[i]=character[i];
+		char* new_char=new char[n];
+		size_t i=0;
+		for(i=0;i<=length_;i++)
+		{
+			new_char[i]=character[i];
+		}
+		delete character;
+		character=new_char;
+		capacity_ = n;
 	}
-	delete character;
-	character=new_char;
-	capacity_ = n;
 }
 
 //-----------------------------------------------------------
@@ -296,8 +299,31 @@ string& string::operator= (const char* s)
 
 void string::resize (size_t n)
 {
+	if(n<=length_)
+	{	
 		character[n]='\0';
 		length_=n;
+	}
+	else
+	{
+		if(capacity_<n)
+		{
+			char* char_new=new char[n];
+			size_t i=0;
+			for(i=0;i<=length_;i++)
+			{
+				char_new[i]=character[i];
+				capacity_=n;
+			}
+			for(i=length_+1;i<n;i++)
+			{
+				char_new[i]=' ';
+			}
+			delete character;
+			character=char_new;
+		}
+
+	}
 }
 
 
