@@ -82,8 +82,8 @@ int main(int argc, char* argv[])
 
   string my_string="Hello";
   string my_string2="World";
-  my_string2=my_string;
-  my_string2.display();
+  string my_string3="Hello"+my_string2;
+  my_string3.display();
 
   return 0;
 }

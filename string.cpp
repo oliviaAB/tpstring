@@ -301,6 +301,46 @@ string& string::operator= (char c)
 }
 
 //-----------------------------------------------------------
+//                       OPERATOR+
+//-----------------------------------------------------------
+string operator+ (const char*   lhs, const string& rhs)
+{
+	size_t lhs_size=0;
+	while(lhs[lhs_size]!='\0')
+	{
+		lhs_size++;
+	}
+
+
+	char* new_char=new char[lhs_size+rhs.length()];
+
+	size_t i=0;
+
+	for(i=0;i<lhs_size;i++)
+	{
+		new_char[i]=lhs[i];
+	}
+
+	size_t o=0;
+	printf("%ld\n",rhs.length());
+	for(o=0;o<rhs.length();o++)
+	{
+		new_char[i]=rhs.get_character()[o];
+		i++;
+		printf("%c\n",new_char[i]);
+	}
+
+	new_char[i+1]='\0';
+
+	string string_return=string(new_char);
+	string_return.display();
+
+	return string_return;
+}
+
+
+
+//-----------------------------------------------------------
 //                       RESIZE
 //-----------------------------------------------------------
 
@@ -320,12 +360,13 @@ void string::resize (size_t n)
 			for(i=0;i<=length_;i++)
 			{
 				char_new[i]=character[i];
-				capacity_=n;
 			}
 			for(i=length_+1;i<n;i++)
 			{
 				char_new[i]=' ';
 			}
+
+			capacity_=n;
 			delete character;
 			character=char_new;
 		}
