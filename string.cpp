@@ -200,15 +200,18 @@ size_t string::length() const
 //Request a change in capacity
 void string::reserve (size_t n)
 {
-	char* new_char=new char[n];
-	size_t i=0;
-	for(i=0;i<=length_;i++)
+	if(capacity_<n)
 	{
-		new_char[i]=character[i];
+		char* new_char=new char[n];
+		size_t i=0;
+		for(i=0;i<=length_;i++)
+		{
+			new_char[i]=character[i];
+		}
+		delete character;
+		character=new_char;
+		capacity_ = n;
 	}
-	delete character;
-	character=new_char;
-	capacity_ = n;
 }
 
 //-----------------------------------------------------------
@@ -259,16 +262,11 @@ size_t string::max_size() const
 
 char& string::operator[] (size_t pos)
 {
-	char return_ = NULL;
-	if(pos<=length_)
+	if(pos>length_)
 	{
-		return_ = character[pos-1];
-	}
-	else
-	{
-		printf("position superior to length\n");
-	}
-	return return_ ;
+		printf("position superior to length_.\n");
+	}  
+	return character[pos-1];
 }
 
 //-----------------------------------------------------------
