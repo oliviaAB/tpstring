@@ -257,7 +257,7 @@ size_t string::max_size() const
 	return MAX_SIZE;
 }
 //-----------------------------------------------------------
-//                       OPERATORS
+//                       OPERATORS[]
 //-----------------------------------------------------------
 
 char& string::operator[] (size_t pos)
@@ -293,6 +293,30 @@ string& string::operator= (const char* s)
   return my_string;
 }
 
+
+string operator+( string& lhs,  string& rhs)
+{
+	char* tab = new char;
+	size_t o;
+	o=0;
+	while(lhs.get_character()[o] != '\0')
+	{
+		tab[o] = lhs.get_character()[o];
+		o++;
+	}
+	size_t i = 0;
+	while(rhs.get_character()[i] != '\0')
+	{
+		tab[o] = rhs.get_character()[i];
+		o++;
+		i++;
+	}
+
+	tab[o+1]='\0';
+	string my_string = string(tab);
+	delete tab;
+	return my_string;
+}
 //-----------------------------------------------------------
 //                       RESIZE
 //-----------------------------------------------------------
