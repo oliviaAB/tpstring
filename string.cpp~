@@ -300,29 +300,6 @@ string& string::operator= (char c)
 	return output;
 }
 
-
-//-----------------------------------------------------------
-//                       OPERATOR+
-//-----------------------------------------------------------
-
-string operator+(const string& lhs, char rhs)
-{
-   size_t totalLength;
-   totalLength = lhs.length() + 1;
-   size_t i;
-   char* my_chain= new char[totalLength+1]; 
-   for(i=0; i<lhs.length(); i++)
-  {
-	my_chain[i]=lhs.get_character()[i];
-  }
-   
-  my_chain[lhs.length()]=rhs; 
-  my_chain[lhs.length() + 1]='\0';
-  string my_string = string(my_chain);
-  return my_string;
-  
-}
-
 //-----------------------------------------------------------
 //                       RESIZE
 //-----------------------------------------------------------
