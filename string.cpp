@@ -293,8 +293,31 @@ void string::operator=(const string& str)
 
 void string::resize (size_t n)
 {
+	if(n<=length_)
+	{	
 		character[n]='\0';
 		length_=n;
+	}
+	else
+	{
+		if(capacity_<n)
+		{
+			char* char_new=new char[n];
+			size_t i=0;
+			for(i=0;i<=length_;i++)
+			{
+				char_new[i]=character[i];
+				capacity_=n;
+			}
+			for(i=length_+1;i<n;i++)
+			{
+				char_new[i]=' ';
+			}
+			delete character;
+			character=char_new;
+		}
+
+	}
 }
 
 
