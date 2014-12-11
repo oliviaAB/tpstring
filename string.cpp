@@ -36,7 +36,7 @@
 // ===========================================================================
 size_t string::MAX_SIZE=100;
 
-
+//Constructs an empty string, with a length of zero characters.
 string::string(void)
 {
 	character = NULL;
@@ -44,8 +44,8 @@ string::string(void)
 	capacity_=0;
 }
 
-
-string::string(const string& str)  //Build copy constructor
+//Constructs a copy of str.
+string::string(const string& str) 
 {
   character = new char[str.get_length_()+1];  
   length_ =  str.get_length_();
@@ -58,9 +58,8 @@ string::string(const string& str)  //Build copy constructor
   character[i+1]='\0';
 }
 
-//-----------------------------------------------------------
-//                 CONSTRUCTOR WITH A C-STRING
-//-----------------------------------------------------------
+
+//Copies the null-terminated character sequence (C-string) pointed by s.
 //if the input c-string is too long, copy only the MAX_SIZE
 //first characters, and print an error message
 
@@ -140,7 +139,7 @@ const char* string::c_str() const
 //-----------------------------------------------------------
 //                       DISPLAY
 //-----------------------------------------------------------
-
+//display the character chain
 void string::display(void)
 {
 	 size_t i=0;
@@ -256,10 +255,11 @@ size_t string::max_size() const
 {
 	return MAX_SIZE;
 }
-//-----------------------------------------------------------
-//                       OPERATOR []
 
 //-----------------------------------------------------------
+//                       OPERATOR []
+//-----------------------------------------------------------
+//Returns a reference to the character at position pos in the string.
 
 char& string::operator[] (size_t pos)
 {
@@ -273,6 +273,7 @@ char& string::operator[] (size_t pos)
 //-----------------------------------------------------------
 //                       OPERATOR=
 //-----------------------------------------------------------
+//Assigns a new value to the string, replacing its current contents.
 void string::operator=(const string& str)
 {
   character=NULL;
@@ -287,6 +288,9 @@ void string::operator=(const string& str)
   character[i+1]='\0';
 }
 
+//-----------------------------------------------------------
+
+
 string& string::operator= (const char* s)
 {
   string my_string=string(s);  
@@ -294,31 +298,8 @@ string& string::operator= (const char* s)
   return my_string;
 }
 
+//-----------------------------------------------------------
 
-
-string operator+( string& lhs,  string& rhs)
-{
-	char* tab = new char;
-	size_t o;
-	o=0;
-	while(lhs.get_character()[o] != '\0')
-	{
-		tab[o] = lhs.get_character()[o];
-		o++;
-	}
-	size_t i = 0;
-	while(rhs.get_character()[i] != '\0')
-	{
-		tab[o] = rhs.get_character()[i];
-		o++;
-		i++;
-	}
-
-	tab[o+1]='\0';
-	string my_string = string(tab);
-	delete tab;
-	return my_string;
-}
 
 string& string::operator= (char c)
 {
@@ -327,11 +308,11 @@ string& string::operator= (char c)
 	return output;
 }
 
-
 //-----------------------------------------------------------
 //                       OPERATOR+
 //-----------------------------------------------------------
-
+//Returns a newly constructed string object with its value
+//being the concatenation of the characters in lhs followed by those of rhs.
 string operator+(const string& lhs, char rhs)
 {
    size_t totalLength;
@@ -350,10 +331,8 @@ string operator+(const string& lhs, char rhs)
   
 }
 
+//-----------------------------------------------------------
 
-//-----------------------------------------------------------
-//                       OPERATOR+
-//-----------------------------------------------------------
 string operator+ (const char*   lhs, const string& rhs)
 {
 	size_t lhs_size=0;
@@ -389,11 +368,43 @@ string operator+ (const char*   lhs, const string& rhs)
 	return string_return;
 }
 
+//-----------------------------------------------------------
+
+string operator+( string& lhs,  string& rhs)
+{
+	char* tab = new char;
+	size_t o;
+	o=0;
+	while(lhs.get_character()[o] != '\0')
+	{
+		tab[o] = lhs.get_character()[o];
+		o++;
+	}
+	size_t i = 0;
+	while(rhs.get_character()[i] != '\0')
+	{
+		tab[o] = rhs.get_character()[i];
+		o++;
+		i++;
+	}
+
+	tab[o+1]='\0';
+	string my_string = string(tab);
+	delete tab;
+	return my_string;
+}
 
 
 //-----------------------------------------------------------
 //                       RESIZE
 //-----------------------------------------------------------
+//Resizes the string to a length of n characters.
+//If n is smaller than the current string length, the current value
+//is shortened to its first n character, removing the characters beyond the nth.
+//If n is greater than the current string length, the current
+//content is extended by inserting at the end as many characters as
+//needed to reach a size of n. If c is specified, the new elements are initialized 
+//as copies of c, otherwise, they are value-initialized characters (null characters).
 
 void string::resize (size_t n)
 {
