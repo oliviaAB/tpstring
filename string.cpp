@@ -259,16 +259,11 @@ size_t string::max_size() const
 
 char& string::operator[] (size_t pos)
 {
-	char return_ = NULL;
-	if(pos<=length_)
+	if(pos>length_)
 	{
-		return_ = character[pos-1];
-	}
-	else
-	{
-		printf("position superior to length\n");
-	}
-	return return_ ;
+		printf("position superior to length_.\n");
+	}  
+	return character[pos-1];
 }
 
 //-----------------------------------------------------------
@@ -288,6 +283,12 @@ void string::operator=(const string& str)
   character[i+1]='\0';
 }
 
+string& string::operator= (const char* s)
+{
+  string my_string=string(s);  
+ 
+  return my_string;
+}
 
 //-----------------------------------------------------------
 //                       RESIZE
