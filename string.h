@@ -79,6 +79,11 @@ class string
 
     string& operator= (const char* s);
 
+
+    
+    
+    string& operator+ (const string& str);
+
     string& operator= (char c);
     
     // =======================================================================
@@ -145,7 +150,6 @@ class string
     size_t capacity_;
 };
 
-
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
@@ -157,7 +161,14 @@ class string
 // ===========================================================================
 //                             Operators' definitions
 // ===========================================================================
+
 string operator+ (const char*   lhs, const string& rhs);
+
+string operator+(  string& lhs,  string& rhs);
+
+
+string operator+(const string& lhs, char rhs);
+
 // ===========================================================================
 //                          Inline functions' definition
 // ===========================================================================
