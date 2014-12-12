@@ -97,9 +97,15 @@ int main(int argc, char* argv[])
   my_string2.display(); 
   printf("\n");
 
-  //Test operator+ (student 1)
-  printf("Test function operator+ (student 2)\n");
+  //Test operator+ (student 3)
+  printf("Test function operator+ (student 3)\n");
   my_string2=my_string+my_string;
+  my_string2.display(); 
+  printf("\n");
+
+  //Test operator+ (student 2)
+  printf("Test function operator+ (student 2)\n");
+  my_string2=my_string+"hello";
   my_string2.display(); 
   printf("\n");
 

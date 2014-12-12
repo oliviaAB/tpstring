@@ -358,8 +358,39 @@ string& string::operator+ (const string& str)
 	string* my_string =new string(tab);
 	delete tab;
 	return *my_string;
+}
+
+//-----------------------------------------------------------
+
+string& string::operator+= (const char* s)
+{
+	size_t s_size=0;
+	while(s[s_size]!='\0')
+	{
+		s_size++;
+	}
 
 
+	char* new_char=new char[s_size+length_];
+
+	size_t i=0;
+
+	for(i=0;i<s_size;i++)
+	{
+		new_char[i]=s[i];
+	}
+
+	size_t o=0;
+	for(o=0;o<length_;o++)
+	{
+		new_char[i]=character[o];
+		i++;
+	}
+
+	new_char[i+1]='\0';
+
+	string string_return=string(new_char);
+	return string_return;
 }
 
 //-----------------------------------------------------------
