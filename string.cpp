@@ -334,7 +334,35 @@ string& string::operator+ (char c)
   return *my_string;
 }
 
+//-----------------------------------------------------------
 
+string& string::operator+ (const string& str)
+{
+	char* tab = new char;
+	size_t o;
+	o=0;
+	while(character[o] != '\0')
+	{
+		tab[o] = character[o];
+		o++;
+	}
+	size_t i = 0;
+	while(str.get_character()[i] != '\0')
+	{
+		tab[o] = str.get_character()[i];
+		o++;
+		i++;
+	}
+
+	tab[o+1]='\0';
+	string* my_string =new string(tab);
+	delete tab;
+	return *my_string;
+
+
+}
+
+//-----------------------------------------------------------
 
 string operator+(const string& lhs, char rhs)
 {

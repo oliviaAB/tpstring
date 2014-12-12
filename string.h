@@ -86,6 +86,7 @@ class string
 
 
     string& operator+ (char c);
+    string& operator+ (const string& str);
     
     // =======================================================================
     //                              Public Methods

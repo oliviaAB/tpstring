@@ -97,11 +97,18 @@ int main(int argc, char* argv[])
   my_string2.display(); 
   printf("\n");
 
+  //Test operator+ (student 1)
+  printf("Test function operator+ (student 2)\n");
+  my_string2=my_string+my_string;
+  my_string2.display(); 
+  printf("\n");
+
   //test function clear (student 1)
   printf("Test function clear\n");
   my_string.clear(); 
   my_string.display(); 
   printf("\n");
+
 
   //test operator=(char*)
   char* sentences = "gogole";
