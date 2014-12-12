@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
   string my_string2=string("");
   string my_string= string("Google");
 
-/*
+/*  
   bool emptyornot;
   //test method at (student 2)
   printf("Test function at\n");

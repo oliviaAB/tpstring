@@ -276,16 +276,16 @@ char& string::operator[] (size_t pos)
 //Assigns a new value to the string, replacing its current contents.
 void string::operator=(const string& str)
 {
-  character=NULL;
-  character= new char[str.get_length_()+1];  
-  length_ =  str.get_length_();
-  capacity_ = str.capacity();
-  size_t i;
-  for (i=0; i<str.get_length_(); i++)
-  {
-	character[i]=str.character[i];
-  }
-  character[i+1]='\0';
+	character=NULL;
+	character= new char[str.get_length_()+1];  
+	length_ =  str.get_length_();
+	capacity_ = str.capacity();
+	size_t i;
+	for (i=0; i<str.get_length_(); i++)
+	{
+		character[i]=str.character[i];	
+  	}
+  	character[i+1]='\0';
 }
 
 //-----------------------------------------------------------
@@ -313,6 +313,29 @@ string& string::operator= (char c)
 //-----------------------------------------------------------
 //Returns a newly constructed string object with its value
 //being the concatenation of the characters in lhs followed by those of rhs.
+
+
+string& string::operator+ (char c)
+{
+   size_t totalLength= length_ + 2;
+   size_t i;
+   char* my_chain= new char[totalLength]; 
+
+  for(i=0; i<length_; i++)
+  {
+	my_chain[i]=character[i];	
+  }
+   
+  my_chain[length_]=c; 
+  my_chain[length_ + 1]='\0';
+  string* my_string =new string(my_chain);
+  //my_string.display();
+  //printf("operateur +%ld\n",my_string.length());
+  return *my_string;
+}
+
+
+
 string operator+(const string& lhs, char rhs)
 {
    size_t totalLength;

@@ -79,12 +79,13 @@ class string
 
     string& operator= (const char* s);
 
-
-    
-    
-    string& operator+ (const string& str);
-
     string& operator= (char c);
+    
+    
+    //string& operator+ (const string& str);
+
+
+    string& operator+ (char c);
     
     // =======================================================================
     //                              Public Methods
@@ -165,7 +166,6 @@ class string
 string operator+ (const char*   lhs, const string& rhs);
 
 string operator+(  string& lhs,  string& rhs);
-
 
 string operator+(const string& lhs, char rhs);
 
