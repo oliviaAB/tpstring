@@ -124,6 +124,9 @@ bool string::empty(void) const
 	return isempty;
 }
 
+//-----------------------------------------------------------
+//                       C_STR
+//-----------------------------------------------------------
 
 const char* string::c_str() const
 {
@@ -293,18 +296,17 @@ void string::operator=(const string& str)
 
 string& string::operator= (const char* s)
 {
-  string my_string=string(s);  
- 
+  string my_string= string(s);  
   return my_string;
 }
 
 //-----------------------------------------------------------
 
 
-string& string::operator= (char c)
+string& string::operator= (char c)	
 {
-	string output=string(&c);
 
+	string output=string(&c);
 	return output;
 }
 
