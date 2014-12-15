@@ -75,7 +75,7 @@ class string
     // =======================================================================
     char& operator[] (size_t pos);
 
-    void operator= (const string& str);
+    string& operator= (const string& str);
 
     string& operator= (const char* s);
 

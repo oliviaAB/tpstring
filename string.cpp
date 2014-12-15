@@ -277,18 +277,36 @@ char& string::operator[] (size_t pos)
 //                       OPERATOR=
 //-----------------------------------------------------------
 //Assigns a new value to the string, replacing its current contents.
-void string::operator=(const string& str)
+string& string::operator=(const string& str)
 {
 	character=NULL;
-	character= new char[str.get_length_()+1];  
-	length_ =  str.get_length_();
-	capacity_ = str.capacity();
-	size_t i;
-	for (i=0; i<str.get_length_(); i++)
+	if(str.length()<MAX_SIZE)
 	{
-		character[i]=str.character[i];	
-  	}
-  	character[i+1]='\0';
+		character= new char[str.get_length_()+1];  
+		length_ =  str.get_length_();
+		capacity_ = str.capacity();
+		size_t i;
+		for (i=0; i<str.get_length_(); i++)
+		{
+			character[i]=str.character[i];	
+  		}
+  		character[i+1]='\0';
+	}else
+	{
+		character= new char[MAX_SIZE];  
+		length_ =MAX_SIZE-1;
+		capacity_ = MAX_SIZE;
+		size_t i;
+		for (i=0; i<(MAX_SIZE-1); i++)
+		{
+			character[i]=str.character[i];	
+  		}
+  		character[i+1]='\0';
+	}
+
+
+
+  	return *this;
 }
 
 //-----------------------------------------------------------
