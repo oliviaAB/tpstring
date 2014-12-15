@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
 
   //test function operator= (student 2)
   printf("Test function operator= (student 2)\n");
-  my_string2='c';  
+  my_string2="Test!";  
   my_string2.display(); 
   printf("\n");
 

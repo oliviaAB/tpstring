@@ -314,8 +314,9 @@ string& string::operator=(const string& str)
 
 string& string::operator= (const char* s)
 {
-  string my_string= string(s);  
-  return my_string;
+  string* my_string=new string(s);
+  *this=*my_string;  
+  return *this;
 }
 
 //-----------------------------------------------------------
