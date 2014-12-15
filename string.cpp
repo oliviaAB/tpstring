@@ -325,8 +325,9 @@ string& string::operator= (const char* s)
 string& string::operator= (char c)	
 {
 
-	string output=string(&c);
-	return output;
+  string* my_string=new string(&c);
+  *this=*my_string;  
+  return *this;
 }
 
 //-----------------------------------------------------------
