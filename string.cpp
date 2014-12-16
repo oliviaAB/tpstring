@@ -279,6 +279,7 @@ char& string::operator[] (size_t pos)
 //Assigns a new value to the string, replacing its current contents.
 string& string::operator=(const string& str)
 {
+
 	character=NULL;
 	if(str.length()<MAX_SIZE)
 	{
@@ -360,59 +361,64 @@ string& string::operator+ (char c)
 
 string& string::operator+ (const string& str)
 {
+	printf("Balise\n");
 	char* tab = new char;
 	size_t o;
 	o=0;
-	while(character[o] != '\0')
+
+	for(o=0;o<length_;o++)
 	{
-		tab[o] = character[o];
-		o++;
-	}
-	size_t i = 0;
-	while(str.get_character()[i] != '\0')
-	{
-		tab[o] = str.get_character()[i];
-		o++;
-		i++;
+		tab[o]=character[o];
 	}
 
-	tab[o+1]='\0';
+	size_t i;
+
+	for(i=0;i<str.length();i++)
+	{
+		tab[o]=str.get_character()[i];
+		o++;
+	}
+
+
+	tab[o]='\0';
 	string* my_string =new string(tab);
 	delete tab;
+	my_string->display();
 	return *my_string;
 }
 
 //-----------------------------------------------------------
 
-string& string::operator+= (const char* s)
+string& string::operator+ (const char* s)
 {
 	size_t s_size=0;
+
 	while(s[s_size]!='\0')
 	{
 		s_size++;
 	}
 
-
-	char* new_char=new char[s_size+length_];
+	char* new_char=new char[s_size+length_+1];
 
 	size_t i=0;
+	size_t o=0;
+	
+	for(o=0;o<length_;o++)
+	{
+		new_char[o]=character[o];
+	}
+
 
 	for(i=0;i<s_size;i++)
 	{
-		new_char[i]=s[i];
+		new_char[o]=s[i];
+		o++;
 	}
+	new_char[o]='\0';
+	string* string_return=new string(new_char);
+	//string_return.display();
 
-	size_t o=0;
-	for(o=0;o<length_;o++)
-	{
-		new_char[i]=character[o];
-		i++;
-	}
-
-	new_char[i+1]='\0';
-
-	string string_return=string(new_char);
-	return string_return;
+	return *string_return;
 }
 
 //-----------------------------------------------------------
@@ -423,7 +429,7 @@ string operator+(const string& lhs, char rhs)
    totalLength = lhs.length() + 1;
    size_t i;
    char* my_chain= new char[totalLength+1]; 
-   for(i=0; i<lhs.length(); i++)
+   for(i=0; i<lhs.length(); i++)	
   {
 	my_chain[i]=lhs.get_character()[i];
   }

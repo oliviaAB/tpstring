@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
 
   //Test of size (student 1)
   printf("Test function size (student 1)\n");
-  printf("test1 size %ld\n", test1.size());
+  printf("%s size %ld\n",test1.get_character(), test1.size());
   printf("\n");
 
   //test function clear (student 1)
@@ -76,19 +76,19 @@ int main(int argc, char* argv[])
   printf("\n");
 
   //Test for constructor with a c-string (student 2)
-  printf("Test copy constructor (student 1)\n");
+  printf("Test constructor (student 2)\n");
   string my_string1=string("Hello");
   my_string1.display();
   printf("\n");
 
   //Test of size (student 2)
   printf("Test function length (student 2)\n");
-  printf("my_string1 length %ld\n", my_string1.length());
+  printf("%s length %ld\n",my_string1.get_character(), my_string1.length());
   printf("\n");
 
   //Test of max_size (student 2)
   printf("Test function max_size (student 2)\n");
-  printf("my_size %ld\n", my_string1.max_size());
+  printf("max_size %ld\n", my_string1.max_size());
   printf("\n");
 
   //Test of resize (student 2)
@@ -136,14 +136,15 @@ int main(int argc, char* argv[])
   printf("\n");
 
   // Test reserve (student3)
-   printf("Test function reserve\n");
+   printf("Test function reserve (student 3)\n");
   my_string2.reserve(30);
   printf("capacity: %ld\n", my_string2.capacity());
   printf("\n");
 
   //Test operator+ (student 3)
   printf("Test function operator+ (student 3)\n");
-  my_string2=test1+test1;
+  string toto=string("Toto");
+  my_string2=toto+toto;
   my_string2.display(); 
   printf("\n");
 
@@ -165,7 +166,7 @@ int main(int argc, char* argv[])
   //test operator[] (student 3)
   printf("Test operator[] (student 3)\n");
   my_string2.display();
-  printf("character 1 in ok Google %c\n", my_string2[1]);
+  printf("character 1 in \"ok Google\": %c\n", my_string2[1]);
   printf("\n");
 
   return 0;
