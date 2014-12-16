@@ -422,7 +422,7 @@ string& string::operator+ (const char* s)
 }
 
 //-----------------------------------------------------------
-
+/*
 string operator+(const string& lhs, char rhs)
 {
    size_t totalLength;
@@ -504,7 +504,7 @@ string operator+( string& lhs,  string& rhs)
 	return my_string;
 }
 
-
+*/
 //-----------------------------------------------------------
 //                       RESIZE
 //-----------------------------------------------------------
